@@ -2,7 +2,7 @@ package com.employee_management_backend_Application.service;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface EmployeeRegistrationService {
     public List<RegisterResponse> getAllRegistration();
     public RegisterResponse getRegisterResponse(String registerEmail);
     public String postRegisterResponse(RegisterResponse registerResponse);

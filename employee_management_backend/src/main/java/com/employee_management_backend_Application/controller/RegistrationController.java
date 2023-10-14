@@ -1,7 +1,7 @@
 package com.employee_management_backend_Application.controller;
 
 import com.employee_management_backend_Application.service.RegisterResponse;
-import com.employee_management_backend_Application.service.EmployeeService;
+import com.employee_management_backend_Application.service.EmployeeRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("${employeeManagement.base.URL}")
 public class RegistrationController {
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeRegistrationService employeeService;
     @GetMapping("${employeeManagement.registration.getAllRegistration.URL}")
     public ResponseEntity<List<RegisterResponse>> getAllRegistration()
     {

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegistrationServicesImpl implements EmployeeService {
+public class RegistrationServicesImpl implements EmployeeRegistrationService {
     @Autowired
     private RegistrationRepository registrationRepository;
 

@@ -7,12 +7,35 @@ import com.employee_management_backend_Application.repository.RegistrationReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RegistrationServicesImpl implements RegistrationService{
+public class RegistrationServicesImpl implements EmployeeService {
     @Autowired
     private RegistrationRepository registrationRepository;
+
+    @Override
+    public List<RegisterResponse> getAllRegistration() {
+        List<Registration> registrationList=registrationRepository.findAll();
+        if(registrationList.isEmpty())
+        {
+            throw new RegistrationNotFoundException(" No Registration present database");
+        }
+        else {
+            List<RegisterResponse> registerResponseList=new ArrayList<>();
+            for (Registration registration:registrationList)
+            {
+                RegisterResponse registerResponse=new RegisterResponse();
+                registerResponse.setRegistrationEmail(registration.getRegistrationEmail());
+                registerResponse.setRegistraionPassword(registration.getRegistraionPassword());
+                registerResponseList.add(registerResponse);
+            }
+            return registerResponseList;
+        }
+    }
+
     @Override
     public RegisterResponse getRegisterResponse(String registerEmail) {
         Optional<Registration> optionalRegister=registrationRepository.findById(registerEmail);

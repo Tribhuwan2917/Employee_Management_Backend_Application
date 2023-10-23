@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("${employeeManagement.base.URL}")
+@CrossOrigin
 public class RegistrationController {
     @Autowired
     private EmployeeRegistrationService employeeService;

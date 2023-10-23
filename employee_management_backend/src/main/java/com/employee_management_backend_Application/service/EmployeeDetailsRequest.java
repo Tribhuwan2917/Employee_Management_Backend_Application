@@ -1,2 +1,21 @@
-package com.employee_management_backend_Application.service;public class EmployeeDetailsRequest {
+package com.employee_management_backend_Application.service;
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class EmployeeDetailsRequest {
+    private Integer employeeId;
+    private String employeeFirstName;
+    private String employeeLastName;
+    private String employeeEmail;
+    private String employeeCountry;
+    private String employeeAddressZipCode;
+    private String employeeAddressCity;
+    private Integer employeeSalaryPerMonth;
+    private String employeeGender;
+
 }

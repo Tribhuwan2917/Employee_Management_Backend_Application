@@ -19,5 +19,5 @@ public class CurrentProject {
     private String currentProjectLink;
     private String currentProjectDescription;
     private String currentProjectObjective;
-    private String employeeId;
+    private Integer employeeId;
 }

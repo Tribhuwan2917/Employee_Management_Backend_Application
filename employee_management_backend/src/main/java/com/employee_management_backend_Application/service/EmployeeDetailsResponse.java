@@ -2,6 +2,8 @@ package com.employee_management_backend_Application.service;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,4 +17,8 @@ public class EmployeeDetailsResponse {
     private String employeeCountry;
     private String employeeAddressZipCode;
     private String employeeAddressCity;
+    private Integer employeeSalaryPerMonth;
+    private Integer employeeCurrentProjectId;
+    private String employeeGender;
+    private List<Integer> employeePriviousProjectIds;
 }

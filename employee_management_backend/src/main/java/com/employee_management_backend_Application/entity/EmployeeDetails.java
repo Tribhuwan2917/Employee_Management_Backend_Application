@@ -23,6 +23,6 @@ public class EmployeeDetails {
     private String employeeCountry;
     private String employeeAddressZipCode;
     private String employeeAddressCity;
-    private Integer employeeCurrentProjectId;
-    private Integer employeeProjectId;
+    private Integer employeeSalaryPerMonth;
+    private String employeeGender;
 }

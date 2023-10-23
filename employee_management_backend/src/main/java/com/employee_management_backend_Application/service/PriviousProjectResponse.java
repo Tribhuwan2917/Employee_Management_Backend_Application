@@ -14,5 +14,5 @@ public class PriviousProjectResponse {
     private String priviousProjectLink;
     private String priviousProjectDescription;
     private String priviousProjectObjective;
-    private String employeeId;
+    private Integer employeeId;
 }

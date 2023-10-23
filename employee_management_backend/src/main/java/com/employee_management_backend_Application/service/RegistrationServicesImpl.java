@@ -56,7 +56,7 @@ public class RegistrationServicesImpl implements EmployeeRegistrationService {
     public String postRegisterResponse(RegisterResponse registerResponse) {
         if(registrationRepository.existsById(registerResponse.getRegistrationEmail()))
         {
-            throw new RegistrationAlreadyExistException("Registration with Email Id: "+registerResponse.getRegistrationEmail()+"already exists in data base");
+            throw new RegistrationAlreadyExistException("Registration with Email Id: "+registerResponse.getRegistrationEmail()+"already exists");
         }
         else {
             Registration registration=new Registration();

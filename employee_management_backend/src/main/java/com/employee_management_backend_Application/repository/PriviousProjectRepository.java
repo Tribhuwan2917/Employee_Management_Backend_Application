@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PriviousProjectRepository extends JpaRepository<CurrentProject,Integer> {
+public interface PriviousProjectRepository extends JpaRepository<PriviousProject,Integer> {
     @Query("select priviousProject from PriviousProject priviousProject where priviousProject.employeeId=:employeeId")
-    public List<PriviousProject> getPriviousProjectByEmployeeId(Integer employeeId);
+    public List<PriviousProject> findPriviousProjectByEmployeeId(Integer employeeId);
 }

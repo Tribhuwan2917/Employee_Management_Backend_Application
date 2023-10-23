@@ -9,4 +9,5 @@ public interface EmployeeCurrentProjectServices {
     public Integer deleteCurrentProject(Integer currentProjectId);
     public Integer updateCurrentProject(CurrentProjectResponse currentProjectResponse);
 
+    List<CurrentProjectResponse> getAllCurrentProject();
 }

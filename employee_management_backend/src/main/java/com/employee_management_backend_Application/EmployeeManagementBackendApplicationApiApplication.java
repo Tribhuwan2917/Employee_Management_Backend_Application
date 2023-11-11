@@ -24,16 +24,15 @@ EmployeeManagementBackendApplicationApiApplication {
 		CurrentProjectRepository currentProjectRepository=ctx.getBean(CurrentProjectRepository.class);
 //		for(int i=1;i<=10;i++)
 //		{
-//			Registration registration=new Registration();
-//			registration.setRegistrationEmail("electronics8499@gmail.com"+i+"tt");
-//			registration.setRegistraionPassword("MyPassword"+i);
-//			registrationRepository.save(registration);
+//			CurrentProject  currentProject=new CurrentProject(i,"MypostFolio webite","https://tribhuwan2917.github.io/My_Portfolio_Website_Frontend/","This is Something new Project","Employee Management",i*2);
+//			currentProjectRepository.save(currentProject);
 //		}
-		for(int i=1;i<=10;i++)
-		{
-			EmployeeDetails employeeDetails=new EmployeeDetails(i,"Tribhuwan","Pal","electronics8449@gmail.com"+i+i,"India","222175","Jaunpur",30000,"Male");
-			employeeDetailsRepository.save(employeeDetails);
-		}
+//		currentProjectRepository.deleteAll();
+//		for(int i=1;i<=10;i++)
+//		{
+//			EmployeeDetails employeeDetails=new EmployeeDetails(i,"Tribhuwan","Pal","electronics8449@gmail.com"+i+i,"India","222175","Jaunpur",30000,"Male");
+//			employeeDetailsRepository.save(employeeDetails);
+//		}
 //		employeeDetailsRepository.deleteAll();
 //		employeeDetailsRepository.deleteAll();
 //		for (int i = 21; i <= 25; i++) {

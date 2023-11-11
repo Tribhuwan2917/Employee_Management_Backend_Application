@@ -102,14 +102,19 @@ public class PriviousProjectServicesImpl implements PriviousProjectServices{
     public Integer updatePriviousProject(PriviousProjectResponse priviousProjectResponse) {
         if(priviousProjectRepository.existsById(priviousProjectResponse.getPriviousProjectId()))
         {
-            PriviousProject priviousProject=new PriviousProject();
-            priviousProject.setPriviousProjectLink(priviousProjectResponse.getPriviousProjectLink());
-            priviousProject.setPriviousProjectId(priviousProjectResponse.getPriviousProjectId());
-            priviousProject.setPriviousProjectTitle(priviousProjectResponse.getPriviousProjectTitle());
-            priviousProject.setPriviousProjectObjective(priviousProjectResponse.getPriviousProjectObjective());
-            priviousProject.setPriviousProjectDescription(priviousProjectResponse.getPriviousProjectDescription());
-            priviousProject.setEmployeeId(priviousProjectResponse.getEmployeeId());
-            return priviousProjectRepository.save(priviousProject).getPriviousProjectId();
+            if(employeeDetailsRepository.existsById(priviousProjectResponse.getEmployeeId())) {
+                PriviousProject priviousProject = new PriviousProject();
+                priviousProject.setPriviousProjectLink(priviousProjectResponse.getPriviousProjectLink());
+                priviousProject.setPriviousProjectId(priviousProjectResponse.getPriviousProjectId());
+                priviousProject.setPriviousProjectTitle(priviousProjectResponse.getPriviousProjectTitle());
+                priviousProject.setPriviousProjectObjective(priviousProjectResponse.getPriviousProjectObjective());
+                priviousProject.setPriviousProjectDescription(priviousProjectResponse.getPriviousProjectDescription());
+                priviousProject.setEmployeeId(priviousProjectResponse.getEmployeeId());
+                return priviousProjectRepository.save(priviousProject).getPriviousProjectId();
+            }
+            else {
+                throw new PriviousProjectNotFoundException("No Any Employee Exists Coresponding This Privious Project Id: "+priviousProjectResponse.getPriviousProjectId());
+            }
         }
         else {
             throw new PriviousProjectNotFoundException("No Any Privious Project Found");

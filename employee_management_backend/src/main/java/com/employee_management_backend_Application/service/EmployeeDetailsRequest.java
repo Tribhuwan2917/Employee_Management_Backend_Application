@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class EmployeeDetailsRequest {
+
     private Integer employeeId;
     private String employeeFirstName;
     private String employeeLastName;

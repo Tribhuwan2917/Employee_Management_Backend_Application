@@ -1,5 +1,12 @@
 package com.employee_management_backend_Application.service;
 
-public class ForgotPasswordEmailResponse {
-    
+import lombok.*;
+
+@ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ForgotPasswordResponse {
+   private Integer otpFromServer;
 }

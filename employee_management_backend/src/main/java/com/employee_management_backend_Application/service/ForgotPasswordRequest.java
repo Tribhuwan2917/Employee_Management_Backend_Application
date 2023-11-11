@@ -7,6 +7,6 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ForgotEmailRequest {
+public class ForgotPasswordRequest {
     private  String registrationEmail;
 }

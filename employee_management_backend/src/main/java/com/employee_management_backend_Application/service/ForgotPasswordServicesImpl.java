@@ -52,7 +52,7 @@ public class ForgotPasswordServicesImpl implements ForgotPassordService{
 
 
         String userName="electronics8499@gmail.com";
-        String password="kwty flfe njzi cowi";
+        String password="";
         Session session=Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {

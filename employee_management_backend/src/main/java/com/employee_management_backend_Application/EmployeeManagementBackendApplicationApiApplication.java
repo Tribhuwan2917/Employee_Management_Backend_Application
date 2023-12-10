@@ -13,15 +13,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.reactive.context.ConfigurableReactiveWebApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 @SpringBootApplication
 public class
 EmployeeManagementBackendApplicationApiApplication {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ConfigurableApplicationContext ctx = SpringApplication.run(EmployeeManagementBackendApplicationApiApplication.class, args);
 		RegistrationRepository registrationRepository = ctx.getBean(RegistrationRepository.class);
 		EmployeeDetailsRepository employeeDetailsRepository = ctx.getBean(EmployeeDetailsRepository.class);
 		PriviousProjectRepository priviousProjectRepository = ctx.getBean(PriviousProjectRepository.class);
 		CurrentProjectRepository currentProjectRepository=ctx.getBean(CurrentProjectRepository.class);
+//		employeeDetailsRepository.deleteAll();
 //		for(int i=1;i<=10;i++)
 //		{
 //			CurrentProject  currentProject=new CurrentProject(i,"MypostFolio webite","https://tribhuwan2917.github.io/My_Portfolio_Website_Frontend/","This is Something new Project","Employee Management",i*2);

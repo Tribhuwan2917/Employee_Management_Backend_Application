@@ -35,6 +35,7 @@ employeeManagement.employeeDetails.updateEmployeeDetails.URl=/updateEmployeeDeta
     @PostMapping("${employeeManagement.employeeDetails.postEmployeeDetails.URL}")
     public ResponseEntity<String> postEmployeeDetails(@RequestBody EmployeeDetailsRequest employeeDetailsRequest)
     {
+        System.out.println(employeeDetailsRequest);
         return new ResponseEntity<>("Employee Details addedd successfully with employee Id:"+employeeDetailsServices.postEmployeeDetails(employeeDetailsRequest),HttpStatus.CREATED);
     }
     @DeleteMapping("${employeeManagement.employeeDetails.deleteEmployeeDetails.URL}")

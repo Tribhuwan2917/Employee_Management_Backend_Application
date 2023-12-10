@@ -40,7 +40,6 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsServices {
                 if(optionalCurrentProject.isPresent())
                 employeeDetailsResponse.setEmployeeCurrentProjectId(optionalCurrentProject.get().getCurrentProjectId());
                 List<Integer> employeePriviousProjectIdList=new ArrayList<>();
-//                System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu+++++++++++++++");
                 List<PriviousProject> priviousProjectList=priviousProjectRepository.findPriviousProjectByEmployeeId(employeeDetails.getEmployeeId());
                 for (PriviousProject priviousProject:priviousProjectList)
                 {

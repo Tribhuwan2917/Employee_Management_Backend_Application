@@ -29,7 +29,7 @@ employeeManagement.employeeDetails.updateEmployeeDetails.URl=/updateEmployeeDeta
     @GetMapping("${employeeManagement.employeeDetails.getEmployeeDetails.URL}")
     public ResponseEntity<EmployeeDetailsResponse> getEmployeeDetails(@PathVariable("employeeDetailsId") Integer employeeDetailsId)
     {
-        System.out.println("everythig is fine+++++++++++++++");
+//        System.out.println("everythig is fine+++++++++++++++");
         return new ResponseEntity<>(employeeDetailsServices.getEmployeeDeatils(employeeDetailsId),HttpStatus.OK);
     }
     @PostMapping("${employeeManagement.employeeDetails.postEmployeeDetails.URL}")

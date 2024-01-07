@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -43,7 +44,7 @@ return new ResponseEntity<>(employeeService.getAllRegistration(),HttpStatus.OK);
         return new ResponseEntity<>("employee Password  Successfully updated with Email Id: "+employeeService.updateRegisterResponse(registerResponse),HttpStatus.CREATED);
     }
     @PostMapping("${employeeManagement.registration.forgotPasswordEmail.URL}")
-    public ResponseEntity<ForgotPasswordResponse> postForgotPasswordEmail(@RequestBody ForgotPasswordRequest forgotPasswordRequest)
+    public ResponseEntity<ForgotPasswordResponse> postForgotPasswordEmail(@RequestBody ForgotPasswordRequest forgotPasswordRequest)throws IOException
     {
         return new ResponseEntity<>(forgotPassordService.forgotPosswordOtpVerification(forgotPasswordRequest),HttpStatus.OK);
     }

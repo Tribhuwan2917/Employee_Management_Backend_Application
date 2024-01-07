@@ -5,9 +5,13 @@ import com.employee_management_backend_Application.repository.RegistrationReposi
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import org.apache.tomcat.util.http.fileupload.impl.FileUploadIOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 @Service
@@ -18,7 +22,7 @@ public class ForgotPasswordServicesImpl implements ForgotPassordService{
     @Value("${server.email.Id}")
    private String from;
     @Override
-    public ForgotPasswordResponse forgotPosswordOtpVerification(ForgotPasswordRequest forgotPasswordRequest) {
+    public ForgotPasswordResponse forgotPosswordOtpVerification(ForgotPasswordRequest forgotPasswordRequest)throws IOException {
         if (registrationRepository.existsById(forgotPasswordRequest.getRegistrationEmail())) {
             Integer otpData = random.nextInt(99999);
             String subject = "OTP from Employee_Management_System";
@@ -40,23 +44,21 @@ public class ForgotPasswordServicesImpl implements ForgotPassordService{
 
 
 
-    public boolean sendEmail(String subject,String message,String to,String from)
+    public boolean sendEmail(String subject,String message,String to,String from) throws IOException
     {
+        Properties propertiesGeneralData=new Properties();
+        FileInputStream fileInputStream=new FileInputStream("C://Users//tribhuvan pal//Desktop//Employee_Management_Inerview//Employee_Management_Backend_Application//employee_management_backend//src//main//resources//utilites_data.txt");
+        propertiesGeneralData.load(fileInputStream);
         boolean flage=false;
-        String host="smtp.gmail.com";
         Properties properties=System.getProperties();
         properties.put("mail.smtp.auth",true);
         properties.put("mail.smtp.starttls.enable",true);
-        properties.put("mail.smtp.host",host);
-        properties.put("mail.smtp.port","587");
-
-
-        String userName="electronics8499@gmail.com";
-        String password="";
+        properties.put("mail.smtp.host",propertiesGeneralData.getProperty("host"));
+        properties.put("mail.smtp.port",propertiesGeneralData.getProperty("port"));
         Session session=Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(userName,password);
+                return new PasswordAuthentication(propertiesGeneralData.getProperty("userName"),propertiesGeneralData.getProperty("password"));
             }
         });
         Message mimeMessage=new MimeMessage(session);
